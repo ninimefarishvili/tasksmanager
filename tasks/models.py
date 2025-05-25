@@ -1,6 +1,7 @@
 from django.db import models
 
 class Task(models.Model):
+    client_id = models.CharField(max_length=118 )
     status_choices = ["მიმდინარეობს", "დასრულდა"]
     title = models.CharField(max_length=118, blank=False, null=False)
     description = models.TextField()
