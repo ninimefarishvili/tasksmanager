@@ -7,6 +7,10 @@ from tasks.api import auth_router as AuthRouter
 
 
 
+
+
+
+
 def superuser_required(
     view_func=None, redirect_field_name=REDIRECT_FIELD_NAME, login_url="/"
 ):
@@ -23,10 +27,11 @@ def superuser_required(
 api = NinjaAPI(
     csrf=False,
     docs_url="/docs",
-    title="tasks API",
+    title="Tasks API",
     docs_decorator=superuser_required,
     urls_namespace="api"
 )
+
 
 
 api.add_router("/app/", TaskRouter, tags=["tasks"])
